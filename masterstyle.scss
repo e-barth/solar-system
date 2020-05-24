@@ -311,7 +311,6 @@ footer{
   bottom: 0;
   width: 100vw;
   height: auto;
-  padding-bottom: 1rem;
   display: flex;
   flex-flow: column wrap;
   align-content: center;
@@ -349,6 +348,7 @@ footer{
 
     .foot {
       width: 100%;
+      padding-bottom: .7rem;
     }
 
     &:hover .foot {
