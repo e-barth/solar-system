@@ -1,0 +1,366 @@
+@import "variables";
+@import "body";
+@import "nav";
+@import "animations";
+@import "404";
+
+
+.fade-in {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: $text-two;
+  z-index: -10;
+  @include fade-in;
+}
+
+.bg-image-static {
+  background-image: url('./images/bg-image.png');
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  opacity: 0.8;
+//  background-position: 0px 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  box-sizing: border-box;
+  margin: 0;
+  z-index: 0;
+  transform: rotate(180deg) scale(.9);
+}
+
+.bg-image-move-one {
+  @extend .bg-image-static;
+  @include anima-bg-image-one;
+}
+
+.bg-image-move-two {
+  @extend .bg-image-static;
+  @include anima-bg-image-two;
+}
+
+.section {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+//  scroll-snap-align: center;
+}
+
+#welcome {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+
+  .title {
+    text-align: center;
+    font-family: $font-two;
+    font-weight: 100;
+    text-transform: uppercase;
+    text-shadow: 0 0 1.2rem $text-two;
+    margin: 0;
+    @include anima-title;
+    &-block {
+      height: auto;
+      padding: 10vh 0;
+    }
+    &-one {
+      @extend .title;
+      font-size: 8rem;
+    }
+    &-two {
+      @extend .title;
+      font-size: 3.5rem;
+    }
+    &-three {
+      @extend .title;
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: $font-size * 2;
+  height: 100vh;
+  width: 30vw;
+  box-sizing: border-box;
+//  margin: 2vh 2vw 1vh auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: justify;
+  display: none;
+  @include anima-text;
+  h1 {
+    font-family: $font-two;
+    font-weight: 100;
+  }
+}
+
+.planet {
+  position: absolute;
+  z-index: 10;
+  opacity: 1;
+  box-sizing: border-box;
+  img {
+    height: inherit;
+    width: inherit;
+    object-fit: contain;
+  }
+}
+
+.object {
+  @extend .planet;
+  z-index: 11;
+  //display: none;
+}
+
+.object-moon {
+  @extend .planet;
+  z-index: 9;
+}
+
+#spaceship {
+  height: auto;
+  min-width: $dim-spaceship;
+  object-fit: contain;
+  position: fixed;
+  top: calc(50vh - #{$dim-spaceship / 2});
+  left: -$dim-spaceship;
+  z-index: 20;
+  @include anima-ship;
+  display: none;
+}
+
+@mixin config-planet-small {
+  height: $dim-planet-small;
+  width: $dim-planet-small;
+  top: calc(50vh - #{$dim-planet-medium / 2});
+  right: -$dim-planet-small;
+  display: none;
+}
+
+@mixin config-planet-medium {
+  height: $dim-planet-medium;
+  width: $dim-planet-medium;
+  top: calc(50vh - #{$dim-planet-medium / 2});
+  right: -$dim-planet-medium;
+  display: none;
+}
+
+@mixin config-planet-large{
+  height: $dim-planet-large;
+  width: $dim-planet-large;
+  top: 0;
+  right: -$dim-planet-large;
+  display: none;
+}
+
+#mercury {
+  #planet-mercury {
+    @include config-planet-small;
+    @include anima-planet-small-two;
+  }
+}
+
+#venus {
+  #planet-venus {
+    @include config-planet-small;
+    @include anima-planet-small-one;
+  }
+}
+
+#earth {
+  #planet-earth {
+    @include config-planet-medium
+    @include anima-planet-medium-one;
+
+  }
+  #moon {
+    height: $dim-moon;
+    width: $dim-moon;
+    top: 15vh;
+    right: -$dim-moon;
+    @include anima-object-moon;
+    display: none;
+  }
+  #satellite {
+    height: $dim-satellite;
+    width: $dim-satellite;
+    top: 55vh;
+    left: -$dim-satellite;
+    @include anima-object;
+    display: none;
+  }
+}
+
+#mars {
+  #planet-mars {
+    @include config-planet-small;
+    @include anima-planet-small-two;
+  }
+  #asteroid-belt {
+    height: auto;
+    width: $dim-asteroid-belt;
+    bottom: 20vh;
+    right: -$dim-asteroid-belt;
+    z-index: 30;
+    @include anima-object-belt;
+    display: none;
+  }
+}
+
+#jupiter {
+  #planet-jupiter{
+    @include config-planet-large;
+    @include anima-planet-large-two;
+  }
+}
+
+#saturn {
+  #planet-saturn{
+    @include config-planet-large;
+    @include anima-planet-large-two;
+  }
+  #comet {
+    height: $dim-comet;
+    width: $dim-comet;
+    top: 55vh;
+    left: -$dim-comet;
+    @include anima-object;
+    display: none;
+  }
+}
+
+#uranus {
+  #planet-uranus{
+    @include config-planet-small;
+    @include anima-planet-small-one;
+  }
+}
+
+#neptune {
+  #planet-neptune{
+    @include config-planet-small;
+    @include anima-planet-medium-one;
+  }
+}
+
+#pluto {
+  #planet-pluto{
+    @include config-planet-small;
+    top: 40vh;
+    @include anima-planet-small-two;
+  }
+  #astronaut {
+    height: $dim-astronaut;
+    width: $dim-astronaut;
+    top: 5vh;
+    right: -$dim-astronaut;
+    @include anima-astronaut;
+    display: none;
+  }
+}
+
+
+.button {
+  position: absolute;
+  width: 10rem;
+  left: calc(50vw - 5rem);
+  display: flex;
+  flex-flow: column wrap;
+  background: none;
+  border: none;
+  display: none;
+  a{
+    text-decoration: none;
+    h3 {
+      width: 10rem;
+      color: $text-three;
+      text-transform: uppercase;
+      font-family: $font-two;
+      font-weight: 100;
+    }
+  }
+  &:hover {
+    h3 {
+      color: $text-one;
+    }
+  }
+}
+
+.btn-down {
+  @extend .button;
+  top: $font-size;
+  @include anima-button-down;
+}
+
+.btn-up {
+  @extend .button;
+  bottom: $font-size;
+  @include anima-button-up;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: auto;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  color: $text-three;
+  font-family: $font-two;
+  font-size: .8rem;
+  text-transform: uppercase;
+  @include anima-footer;
+
+  .footer-box{
+    width: 200px;
+    cursor: pointer;
+
+    .social-media {
+      width: 100%;
+      height: 3rem;
+      //display: flex;
+      flex-flow: row wrap;
+      align-content: center;
+      justify-content: center;
+      display: none;
+        .icon-social-media {
+          margin: .5rem;
+          height: 1.8rem;
+          fill: $text-four;
+        }
+        .icon-social-media:hover {
+          fill: $text-two;
+          transform: scale(1.1);
+          cursor: pointer;
+        }
+    }
+
+    .foot {
+      width: 100%;
+    }
+
+    &:hover .foot {
+      color: $text-two;
+      text-shadow: 0 0 .1rem $text-two;
+    }
+
+    &:hover .social-media {
+        display: flex;
+    }
+  }
+}
+
+
+@import 'smaller-screens';

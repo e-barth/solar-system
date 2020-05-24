@@ -1,0 +1,48 @@
+// main: masterstyle.scss
+
+#lost {
+  @extend #welcome;
+  .title {
+
+    a {
+      display: inline-block;
+      padding: 1.4rem 2rem;
+      text-decoration: none;
+      color: $text-three;
+      transition: 0.2s;
+      h3 {
+        @include anima-btn-pulse;
+      }
+    }
+    a:hover {
+        color: $bg-one;
+        background: $text-three;
+        border-radius: 6px;
+        box-shadow: 0 0 1rem $text-two, 0 0 3rem $text-two;
+      h3 {
+        animation-play-state: paused;
+      }
+    }
+
+  }
+}
+
+
+#lost {
+  #astronaut-one {
+    height: $dim-astronaut;
+    width: $dim-astronaut;
+    top: 5vh;
+    right: -$dim-astronaut;
+    display: block;
+    @include anima-astronaut-one;
+  }
+  #astronaut-two {
+    height: $dim-comet;
+    width: $dim-comet;
+    top: 55vh;
+    left: -$dim-comet;
+    display: block;
+    @include anima-astronaut-two;
+  }
+}

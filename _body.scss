@@ -1,0 +1,31 @@
+// main: masterstyle.scss
+
+:root {
+  font-size: $font-size;
+  font-family: $font-one;
+  font-display: fallback;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  color: $text-two;
+  background-image: linear-gradient(to bottom right, #999, #333, #000);
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+//  scroll-snap-type: y mandatory;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom right, #333, #000);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom right, #eee, #333);
+}

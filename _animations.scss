@@ -1,0 +1,337 @@
+// main: masterstyle.scss
+
+@mixin fade-in {
+  animation-name: fade-in;
+  animation-duration: 1.5s;
+  animation-delay: -0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+@keyframes fade-in {
+  from{
+    opacity: 1;
+    z-index: 500;
+
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+
+
+@mixin anima-bg-image-one {
+  animation-name: anima-bg-one;
+  animation-duration: 240s;
+  animation-delay: -1s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+}
+@keyframes anima-bg-one {
+  from{
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@mixin anima-bg-image-two {
+  @include anima-bg-image-one;
+  animation-name: anima-bg-two;
+}
+@keyframes anima-bg-two {
+  from{
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@mixin anima-title{
+  animation-name: anima-title;
+  animation-duration: 10s;
+  animation-delay: 0;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+@keyframes anima-title {
+  from {
+    transform: scale(0, 0);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+@mixin anima-text{
+  @include anima-title;
+  animation-delay: 10s;
+}
+
+@mixin anima-text-small-screens {
+  @include anima-title;
+  animation-delay: 1s;
+}
+
+@mixin anima-button-down {
+  animation-name: anima-button-down;
+  animation-duration: 3s;
+  animation-delay: 5s;
+  animation-fill-mode: both;
+}
+@keyframes anima-button-down {
+  from {
+    transform: translateY(-5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@mixin anima-button-up {
+  animation-name: anima-button-up;
+  animation-duration: 3s;
+  animation-delay: 20s;
+  animation-fill-mode: both;
+
+}
+@keyframes anima-button-up {
+  from {
+    transform: translateY(+5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@mixin anima-footer {
+  animation-name: anima-footer;
+  animation-duration: 3s;
+  animation-delay: 10s;
+  animation-fill-mode: backwards;
+
+}
+@keyframes anima-footer {
+  from {
+    transform: translateY(+3rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+@mixin anima-ship {
+  animation-name: anima-spaceship;
+  animation-duration: 15s;
+  animation-delay: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes anima-spaceship {
+  from{
+    opacity: 0.9;
+  }
+  to {
+    transform: translate(calc(50vw + #{$dim-spaceship / 2}));
+    opacity: 1;
+  }
+}
+
+@mixin anima-planet-small-one {
+  animation-name: anima-planet-small-one;
+  animation-duration: 20s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+}
+@keyframes anima-planet-small-one {
+  from{
+    transform: translate(0) rotate(-15deg) scale(1, 1);
+  }
+  to {
+    transform: translate(calc(-100vw - #{$dim-planet-small * 1.5})) rotate(30deg) scale(1.5, 1.5);
+  }
+}
+
+@mixin anima-planet-small-two {
+  animation-name: anima-planet-small-two;
+  animation-duration: 25s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+}
+@keyframes anima-planet-small-two {
+  from{
+    transform: rotate(-15deg) scale(1, 1);
+  }
+  to {
+    transform: translate(calc(-100vw - #{$dim-planet-small})) rotate(30deg) scale(0.5, 0.5);
+  }
+}
+
+@mixin anima-planet-medium-one {
+  animation-name: anima-planet-medium-one;
+  animation-duration: 25s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+}
+@keyframes anima-planet-medium-one{
+  from{
+    transform: rotate(-35deg) scale(1, 1);
+  }
+  to {
+    transform: translate(calc(-100vw - #{$dim-planet-small * 2})) rotate(15deg) scale(2, 2);
+  }
+}
+/*
+@mixin anima-planet-large-one {
+  animation-name: anima-planet-large-one;
+  animation-duration: 20s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+}
+
+@keyframes anima-planet-large-one{
+  from{
+    transform: rotate(-15deg) scale(1, 1);
+  }
+  to {
+    transform: translate(calc(-100vw - #{$dim-planet-large})) rotate(15deg) scale(0.75, 0.75);
+  }
+}
+*/
+@mixin anima-planet-large-two {
+  animation-name: anima-planet-large-two;
+  animation-duration: 20s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+}
+
+@keyframes anima-planet-large-two{
+  from{
+    transform: rotate(-15deg) scale(1, 1);
+  }
+  to {
+    transform: translate(calc(-100vw - #{$dim-planet-large})) rotate(15deg) scale(0.5, 0.5);
+  }
+}
+
+@mixin anima-object {
+  animation-name: anima-object;
+  animation-duration: 7s;
+  animation-delay: 5s;
+  animation-timing-function: linear;
+}
+@keyframes anima-object {
+  from{
+    opacity: 0.9;
+    transform: rotate(0deg) scale(1, 1);
+  }
+  to {
+    opacity: 1;
+    transform: translate(calc(100vw + #{$dim-planet-small}), 35vh) rotate(180deg) scale(0.7, 0.7);
+  }
+}
+
+@mixin anima-object-moon {
+  animation-name: anima-object-moon;
+  animation-duration: 10s;
+  animation-delay: 10s;
+  animation-timing-function: linear;
+}
+@keyframes anima-object-moon {
+  from{
+    transform: rotate(-15deg) scale(1, 1);
+  }
+  to {
+    transform: translate(calc(-100vw - #{$dim-moon * 1.5})) rotate(15deg) scale(1.5, 1.5);
+  }
+}
+
+@mixin anima-object-belt {
+  animation-name: anima-object-belt;
+  animation-duration: 15s;
+  animation-delay: 15s;
+  animation-timing-function: linear;
+}
+@keyframes anima-object-belt {
+  from{
+    transform: rotate(-15deg) scale(1, 1);
+  }
+  to {
+    transform: translate(calc(-100vw - #{$dim-asteroid-belt * 1.5}), 0vh) rotate(-45deg) scale(1.5, 1.5);
+    transform-origin: bottom left;
+  }
+}
+
+@mixin anima-astronaut {
+  animation-name: anima-astronaut;
+  animation-duration: 10s;
+  animation-delay: 7s;
+  animation-timing-function: linear;
+}
+@keyframes anima-astronaut {
+  from{
+    transform: translate(0) rotate(-90deg) scale(1, 1);
+  }
+  to {
+    transform: translate(calc(-100vw - #{$dim-astronaut * 1.5}), 30vh) rotate(180deg) scale(1.5, 1.5);
+  }
+}
+
+
+
+// 404 Page ////////////////////////////////////////////
+
+@mixin anima-btn-pulse {
+  animation-name: btn-pulse;
+  animation-duration: 1s;
+  animation-delay: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes btn-pulse {
+  from{
+    //text-shadow: 0 0 0 $text-two;
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+
+@mixin anima-astronaut-one {
+  animation-name: anima-astronaut-one;
+  animation-duration: 15s;
+  animation-delay: 14s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes anima-astronaut-one {
+  from{
+    transform: translate(0) rotate(-180deg) scale(1, 1);
+  }
+  to {
+    transform: translate(calc(-100vw - #{$dim-astronaut * 1.5}), 30vh) rotate(480deg) scale(1.5, 1.5);
+  }
+}
+
+@mixin anima-astronaut-two {
+  animation-name: anima-astronaut-two;
+  animation-duration: 12s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes anima-astronaut-two {
+  from{
+    transform: rotate(0deg) scale(1, 1);
+  }
+  to {
+    transform: translate(calc(100vw + #{$dim-comet}), 35vh) rotate(180deg) scale(0.7, 0.7);
+  }
+}
