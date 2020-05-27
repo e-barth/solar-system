@@ -114,6 +114,10 @@
     }
   }
   .title {
+      &-block {
+        height: auto;
+        padding: 5vh 10vw !important;
+      }
       &-one {
         font-size: 3rem !important;
       }
@@ -123,10 +127,5 @@
       &-three {
         font-size: 1rem !important;
       }
-  }
-  .footer-box {
-    &:hover .foot {
-      display: none;
-    }
   }
 }

@@ -111,14 +111,14 @@
 
 @mixin anima-footer {
   animation-name: anima-footer;
-  animation-duration: 3s;
+  animation-duration: 5s;
   animation-delay: 10s;
   animation-fill-mode: backwards;
 
 }
 @keyframes anima-footer {
   from {
-    transform: translateY(+3rem);
+    transform: translateY(+5rem);
   }
   to {
     transform: translateY(0);
